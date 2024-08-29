@@ -73,19 +73,19 @@ public class IntList {
         return new IntList(L.first * L.first, squareListRecursive(L.rest));
     }
 
-    /** DO NOT MODIFY ANYTHING ABOVE THIS LINE! */
+    /**   MDIF ANYTHING ABOVE THIS LINE! */
 
     /**
      * // * Returns a list consisting of the elements of A followed by the
-     * // * * elements of B. May modify items of A. Don't use 'new'.
+     * /   elements of B. May modify items of A. Don't use 'new'.
      */
 
     public static IntList dcatenate(IntList A, IntList B) {
         // TODO: fill in method
-    if(A == null){
-     return B;
-      }
-      IntList p = A;
+        if(A == null){
+            return B;
+        }
+        IntList p = A;
         while (p.rest != null) {
             p = p.rest;
         }
