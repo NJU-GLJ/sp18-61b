@@ -5,7 +5,7 @@ public class Planet {
     public double yyVel;
     public double mass;
     public String imgFileName;
-    public static final double G = 6.67 * 1e-11;
+    private static final double G = 6.67 * 1e-11;
 
     public Planet(double xP, double yP, double xV, double yV, double m, String img) {
         xxPos = xP;
@@ -32,14 +32,23 @@ public class Planet {
     }
 
     public double calcForceExertedBy(Planet p) {
+        if (calcDistance(p) == 0) {
+            return 0;
+        }
         return G * this.mass * p.mass / (calcDistance(p) * calcDistance(p));
     }
 
     public double calcForceExertedByX(Planet p) {
+        if (calcDistance(p) == 0) {
+            return 0;
+        }
         return calcForceExertedBy(p) * (p.xxPos - this.xxPos) / calcDistance(p);
     }
 
     public double calcForceExertedByY(Planet p) {
+        if (calcDistance(p) == 0) {
+            return 0;
+        }
         return calcForceExertedBy(p) * (p.yyPos - this.yyPos) / calcDistance(p);
     }
 
